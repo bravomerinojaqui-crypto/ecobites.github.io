@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ECOBITES | Comida saludable a domicilio</title>
+<style>
+:root {
+--verde: #2d6a4f;
+--menta: #95d5b2;
+--marfil: #f9fff6;
+--gris: #4a4a4a;
+--sombra: rgba(0, 0, 0, 0.08);
+font-family: 'Segoe UI', Arial, sans-serif;
+color: var(--gris);
+}
+* {
+box-sizing: border-box;
+}
+body {
+margin: 0;
+background-color: var(--marfil);
+color: var(--gris);
+line-height: 1.6;
+}
+img {
+max-width: 100%;
+display: block;
+}
+header.hero {
+background: linear-gradient(135deg, rgba(45, 106, 79, 0.9), rgba(149, 213, 178, 0.9));
+color: white;
+padding: 40px 20px;
+display: flex;
+flex-wrap: wrap;
+align-items: center;
+gap: 30px;
+}
+.hero__content {
+flex: 1 1 300px;
+}
+.hero__image {
+flex: 1 1 260px;
+border-radius: 16px;
+box-shadow: 0 10px 40px rgba(0, 0, 0, 0.25);
+background-color: white;
+padding: 12px;
+}
+.badge {
+display: inline-block;
+background: rgba(255, 255, 255, 0.2);
+padding: 6px 14px;
+border-radius: 999px;
+letter-spacing: 0.08em;
+text-transform: uppercase;
+font-size: 0.75rem;
+}
+.hero h1 {
+margin: 10px 0 20px;
+font-size: clamp(2rem, 5vw, 2.8rem);
+}
+.hero p {
+font-size: 1rem;
+max-width: 520px;
+}
+.cta {
+display: flex;
+flex-wrap: wrap;
+gap: 12px;
+margin-top: 20px;
+}
+.btn {
+padding: 12px 24px;
+border-radius: 999px;
+border: 2px solid white;
+color: inherit;
+text-decoration: none;
+font-weight: 600;
+transition: opacity 0.2s ease;
+}
+.btn:hover {
+opacity: 0.85;
+}
+.btn.primary {
+background: white;
+color: var(--verde);
+}
+.btn.secondary {
+background: transparent;
+color: white;
+}
+main {
+padding: 40px 20px 20px;
+max-width: 1100px;
+margin: 0 auto;
+}
+section {
+margin-bottom: 50px;
+background: white;
+padding: 30px;
+border-radius: 18px;
+box-shadow: 0 15px 40px var(--sombra);
+}
+section.panel--alt {
+background: #ecfdf0;
+}
+h2 {
+margin-top: 0;
+color: var(--verde);
+font-size: 1.7rem;
+}
+.pill-list {
+list-style: none;
+padding: 0;
+margin: 20px 0 0;
+display: flex;
+flex-wrap: wrap;
+gap: 12px;
+}
+.pill-list li {
+background: var(--marfil);
+border: 1px solid #d4f3df;
+padding: 8px 16px;
+border-radius: 999px;
+font-size: 0.9rem;
+}
+.panel--grid {
+display: grid;
+gap: 22px;
+}
+.card {
+border: 1px solid #e3f4ea;
+border-radius: 14px;
+padding: 20px;
+display: flex;
+flex-direction: column;
+gap: 10px;
+background: #fefefe;
+}
+.card strong {
+font-size: 1.2rem;
+color: var(--verde);
+}
+.steps {
+display: grid;
+gap: 16px;
+counter-reset: paso;
+padding: 0;
+list-style: none;
+}
+.steps li {
+background: white;
+border-radius: 12px;
+padding: 18px;
+border: 1px solid #cfe8da;
+position: relative;
+padding-left: 70px;
+min-height: 70px;
+}
+.steps li::before {
+counter-increment: paso;
+content: counter(paso);
+position: absolute;
+left: 20px;
+top: 18px;
+width: 36px;
+height: 36px;
+border-radius: 50%;
+background: var(--verde);
+color: white;
+display: flex;
+align-items: center;
+justify-content: center;
+font-weight: bold;
+}
+.impacto {
+display: flex;
+flex-wrap: wrap;
+gap: 20px;
+}
+.impacto div {
+flex: 1 1 220px;
+background: white;
+border: 1px solid #e0efe6;
+border-radius: 12px;
+padding: 18px;
+text-align: center;
+}
+.impacto span {
+display: block;
+font-size: 2rem;
+color: var(--verde);
+font-weight: 700;
+}
+.galeria {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+gap: 20px;
+}
+.gallery-card {
+background: #fefefe;
+border-radius: 16px;
+border: 1px solid #e5f3eb;
+padding: 14px;
+box-shadow: 0 10px 30px var(--sombra);
+}
+.gallery-card img {
+border-radius: 12px;
+}
+.gallery-card figcaption {
+margin-top: 10px;
+font-weight: 600;
+color: var(--gris);
+font-size: 0.95rem;
+}
+.recursos a {
+display: inline-block;
+margin-right: 15px;
+margin-top: 10px;
+color: var(--verde);
+font-weight: 600;
+text-decoration: none;
+}
+.contacto {
+display: flex;
+flex-wrap: wrap;
+gap: 24px;
+align-items: center;
+}
+.contacto form {
+flex: 1 1 260px;
+display: grid;
+gap: 12px;
+}
+.contacto input,
+.contacto textarea {
+padding: 12px;
+border-radius: 8px;
+border: 1px solid #bcd8c7;
+font: inherit;
+}
+.contacto button {
+padding: 12px 20px;
+border-radius: 8px;
+border: none;
+background: var(--verde);
+color: white;
+font-weight: 600;
+cursor: pointer;
+}
+footer {
+text-align: center;
+padding: 25px;
+color: #6e6e6e;
+font-size: 0.9rem;
+}
+@media (max-width: 720px) {
+header.hero {
+flex-direction: column;
+}
+section {
+padding: 22px;
+}
+}
+</style>
+</head>
+<body>
+<header class="hero">
+<div class="hero__content">
+<span class="badge">ECOBITES</span>
+<h1>Comida saludable y sostenible directo a tu puerta</h1>
+<p>Somos una empresa pequeña con una gran visión: ofrecer platillos deliciosos, hechos con ingredientes frescos y producidos de manera responsable para cuidar tu salud y el planeta.</p>
+<div class="cta">
+<a class="btn primary" href="#menu">Ver menú saludable</a>
+<a class="btn secondary" href="#contacto">Hacer pedido</a>
+</div>
+</div>
+<div class="hero__image">
+<img src="storage/2_20251119_152101_0001.png" alt="Platillos frescos de ECOBITES">
+</div>
+</header>
+<main>
+<section id="mision">
+<h2>Nuestra misión</h2>
+<p>Ofrecer opciones nutritivas y equilibradas preparadas con ingredientes locales, frescos y sostenibles para que cada comida impulse tu bienestar. Diseñamos cada receta pensando en sabor, practicidad y compromiso con el medio ambiente.</p>
+<ul class="pill-list">
+<li>Ingredientes de temporada</li>
+<li>Packaging compostable</li>
+<li>Opciones veganas y sin gluten</li>
+<li>Entrega en menos de 45 minutos</li>
+</ul>
+</section>
+<section id="menu" class="panel--grid">
+<h2>Platillos destacados</h2>
+<article class="card">
+<strong>Power Bowl Verde</strong>
+<p>Quinoa tricolor, kale marinado, garbanzos tostados y aderezo de aguacate con limón.</p>
+<small>350 kcal · Alto en proteína vegetal</small>
+</article>
+<article class="card">
+<strong>Wrap Solar</strong>
+<p>Tortilla integral rellena de hummus, zanahoria asada, pimientos y hojas baby.</p>
+<small>Ideal para almuerzos ligeros</small>
+</article>
+<article class="card">
+<strong>Sopa Vital</strong>
+<p>Caldo vegetal con jengibre, vegetales crocantes y fideos de arroz integral.</p>
+<small>Reconfortante y baja en sodio</small>
+</article>
+<figure>
+<img src="storage/Imagen de WhatsApp 2025-11-23 a las 22.22.54_ec5f8585.jpg" alt="Equipo de ECOBITES trabajando">
+</figure>
+</section>
+<section class="panel--alt">
+<h2>¿Cómo funciona?</h2>
+<ol class="steps">
+<li>Elige tus platillos favoritos desde el menú semanal.</li>
+<li>Personaliza porciones, ingredientes y horario de entrega.</li>
+<li>Recibe tu pedido fresco y listo para disfrutar.</li>
+</ol>
+</section>
+<section>
+<h2>Impacto saludable</h2>
+<div class="impacto">
+<div>
+<span>450+</span>
+Pedidos entregados con ingredientes locales este mes.
+</div>
+<div>
+<span>120</span>
+Clientes recurrentes que confían en nuestro plan semanal.
+</div>
+<div>
+<span>85%</span>
+Residuos reducidos gracias a envases compostables.
+</div>
+</div>
+<div class="recursos">
+<a href="storage/Folleto de Servicio de Marketing Agencia Creativa Ilustrado Doodle Azul y Blanco.pdf" target="_blank" rel="noopener noreferrer">Ver dossier del proyecto</a>
+<a href="storage/Green Red and Orange Illustrated Vegetables Page Border A4.pdf" target="_blank" rel="noopener noreferrer">Descargar hoja informativa</a>
+</div>
+</section>
+<section id="galeria">
+<h2>Tarjetas y diagramas del proyecto</h2>
+<p>Compartimos nuestras piezas visuales para que conozcas la identidad de ECOBITES y la planificación de nuestro servicio.</p>
+<div class="galeria">
+<figure class="gallery-card">
+<img src="storage/1_20251119_152100_0000.png" alt="Diseño de tarjeta promocional ECOBITES">
+<figcaption>Tarjeta introductoria con el manifiesto de la marca.</figcaption>
+</figure>
+<figure class="gallery-card">
+<img src="storage/2_20251119_152101_0001.png" alt="Variación gráfica con fotografías de platillos">
+<figcaption>Resumen visual de los platillos estrella.</figcaption>
+</figure>
+<figure class="gallery-card">
+<img src="storage/Imagen de WhatsApp 2025-11-23 a las 22.22.54_ec5f8585.jpg" alt="Diagrama del proceso operativo de ECOBITES">
+<figcaption>Diagrama del flujo de pedidos y producción.</figcaption>
+</figure>
+<figure class="gallery-card">
+<img src="storage/IMG-20251119-WA0031.jpg" alt="Composición de ingredientes frescos utilizados">
+<figcaption>Ingredientes frescos que inspiran nuestros menús.</figcaption>
+</figure>
+</div>
+</section>
+<section id="contacto">
+<h2>Contáctanos</h2>
+<div class="contacto">
+<form>
+<input type="text" name="nombre" placeholder="Tu nombre" required>
+<input type="tel" name="telefono" placeholder="WhatsApp" required>
+<textarea name="mensaje" rows="4" placeholder="Cuéntanos qué necesitas" required></textarea>
+<button type="submit">Enviar consulta</button>
+</form>
+<img src="storage/IMG-20251119-WA0031.jpg" alt="Ingredientes frescos utilizados por ECOBITES">
+</div>
+</section>
+</main>
+<footer>
+&copy; 2025 ECOBITES · Alimenta tu salud con conciencia
+</footer>
+</body>
+</html>
